@@ -1,0 +1,124 @@
+.small { font-size: 12px; }
+.tb-style1 { width: 150px; margin-left: 4px; }
+.ul-style1 { max-height: 110px; overflow: auto; }
+
+em {
+	background-color: #E3E819;
+	color: #EC6872;
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: copper-hewitt-light;
+	src: url(fonts/CooperHewitt-OTF-public/CooperHewitt-Light.otf);
+}
+
+@font-face {
+	font-family: copper-hewitt-bold;
+	src: url(fonts/CooperHewitt-OTF-public/CooperHewitt-Bold.otf);
+}
+
+@font-face {
+	font-family: copper-hewitt-medium;
+	src: url(fonts/CooperHewitt-OTF-public/CooperHewitt-Medium.otf);
+}
+
+@font-face {
+	font-family: copper-hewitt-heavy;
+	src: url(fonts/CooperHewitt-OTF-public/CooperHewitt-Heavy.otf);
+}
+
+body {
+	margin: 0px;
+	padding: 0px;
+	background-color: #354C59;
+}
+
+.wrapper {
+	margin: 10px;
+	
+}
+
+.header {
+	background-color: #A1D61D;
+	font-family: copper-hewitt-medium;
+	font-size: 22px;
+    min-height: 49px;
+
+}
+
+.header-logo {
+	float: left;
+	width: 220px;
+	padding: 10px;
+	background-color: #80B329;
+	color: #FFF;
+	border-top-right-radius: 20px;
+	border-bottom-right-radius: 20px;
+}
+
+.header-right {
+	margin-left: 450px;
+	background-color: #A1D61D;	
+	padding: 10px;
+
+}
+
+.header-searchbox {
+	font-size: 22px;
+	border-radius: 5px;
+	border: 1px;
+	width: 340px;
+	padding-left: 5px;
+	color: #7B6E6E;
+}
+
+.header-img-div {
+	float: right;
+}
+
+.header-img-icon {
+	height: 30px;
+	width: 30px;
+	float: right;
+	margin-left: 7px;
+}
+
+.content {
+
+}
+
+.diva {
+	float: left; width: 200px; min-height: 800px; padding: 15px 0px 0px 10px;
+	background-color: #394456;
+	font-family: copper-hewitt-light;
+	color: #FFF;
+
+}
+
+.divb {
+    margin-left: 210px; min-height: 800px;
+	background-color: #FFF;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+	color: #000;
+	font-size: 12px;
+	
+	
+}
+
+/*.divc {
+	padding: 15px 10px 0px 10px; margin-left: 1095px;
+	min-height: 800px; 
+	background-color: #394456; color: #FFF;
+	font-family: copper-hewitt-light;
+}*/
+
+.diva-elem {  margin: 0px 0px 15px 0px;}
+
+.diva-heading { color: #2ED25C;  font-family: copper-hewitt-medium; margin:0px 0px 20px 0px;   }
+.list1 { margin: 0px; list-style-type: none; padding: 0px 0px 0px 5px; }
+
+
+.style1 { background-color: #444141; color: #FFF; padding: 0px 5px 0px 5px; border-radius: 5px;}
+

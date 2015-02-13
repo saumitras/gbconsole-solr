@@ -1,0 +1,64 @@
+@(message: String)
+
+@main("SolrPartition Admin Console") {
+
+    <div class="wrapper">
+
+        <div class="header">
+
+            <div class="header-logo">
+                GB Solr Console
+            </div>
+            <div class="header-right">
+                <a href="#" title="Settings"><img src="/assets/img/setting1.png" class="header-img-icon"></a>
+            </div>
+
+        </div>
+
+        <div class="clearfloat" style="clear : both"></div>
+
+        <div class="content">
+
+                <!--left start -->
+            <div class="diva">
+                <div class='diva-heading'>
+                    Collection Stats
+                </div>
+                <div class='diva-heading'>
+                    MPS Stats
+                </div>
+
+                <div class='diva-heading'>
+                    Cluster Health
+                </div>
+
+                <div class='diva-heading'>
+                    Transaction Logs
+                </div>
+
+
+
+
+            </div> <!--left ends -->
+
+
+            <!--center start -->
+            <div class="divb">
+                <input type="button" value="get solrCollections" onclick="getSolrCollections()" />
+
+            </div><!--center ends -->
+
+        </div>
+
+    </div>
+
+@*
+    <script>
+    $ ( document ).ready ( function ( ) {
+    $ ( '.tabs' ).tabslet ( ) ;
+    } )
+    </script>
+*@
+
+
+}

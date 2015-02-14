@@ -5,16 +5,15 @@ import play.api.mvc._
 
 object SolrCollectionInfo extends Controller {
 
-    def getCollectionsByCluster = Action {
-      Ok(Json.toJson(models.SolrStats.getAllSolrCollections))
-    }
+  def getCollectionsByCluster = Action {
+    Ok(Json.toJson(models.SolrStats.getAllSolrCollections))
+  }
 
-    def getCollectionsByName(c:String) = Action {
-      Ok(Json.toJson(models.SolrStats.getCollectionsByName(c)))
-    }
+  def getCollectionsByName(c: String) = Action {
+    Ok(Json.toJson(models.SolrStats.getCollectionsByName(c)))
+  }
 
-    def getCollectionsByMps(mps:String) = Action {
-      Ok(Json.toJson(models.SolrStats.getCollectionsByMps(mps)))
-    }
-
+  def getCollectionsByMps(mps: String) = Action {
+    Ok(Json.toJson(models.SolrStats.getCollectionsByMps(mps)))
+  }
 }

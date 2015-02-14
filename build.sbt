@@ -17,7 +17,8 @@ libraryDependencies ++= Seq( jdbc , anorm , cache , ws ,
   "com.typesafe.akka" % "akka-slf4j_2.10" % "2.3.6" withSources() withJavadoc(),
   "com.typesafe.akka" % "akka-testkit_2.10" % "2.3.6" withSources() withJavadoc(),
   "org.json4s" %% "json4s-native" % "3.2.1" withSources(),
-  "org.json4s" %% "json4s-jackson" % "3.2.1" withSources()
+  "org.json4s" %% "json4s-jackson" % "3.2.1" withSources(),
+  "org.apache.zookeeper" % "zookeeper" % "3.4.6"
 )
 
 unmanagedResourceDirectories in Test <+=  baseDirectory ( _ /"target/web/public/test" )

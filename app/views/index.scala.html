@@ -1,101 +1,210 @@
 @(message: String)
 
 @main("SolrPartition Admin Console") {
-
-    <div class="wrapper">
-
-        <div class="header">
-
-            <div class="header-logo">
-                GB Solr Console
+    <header class="navbar navbar-default navbar-static-top" role="banner">
+        <div class="container overwrite-margin ">
+            <div class="navbar-header">
+                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/" class="navbar-brand">GB-Solr-Console</a>
             </div>
-            <div class="header-right">
-                <a href="#" title="Settings"><img src="/assets/img/setting1.png" class="header-img-icon"></a>
-            </div>
 
+                <!-- <nav class="collapse navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="#">Get Started</a>
+        </li>
+        <li>
+          <a href="#">Edit</a>
+        </li>
+        <li>
+          <a href="#">Visualize</a>
+        </li>
+        <li>
+          <a href="#">Prototype</a>
+        </li>
+      </ul>
+    </nav> -->
         </div>
+    </header>
 
-        <div class="clearfloat" style="clear : both"></div>
+    <!-- Begin Body -->
+    <div class="container overwrite-margin ">
+        <div class="row">
+            <div class="col-md-3" id="leftCol">
 
-        <div class="content">
-
-                <!--left start -->
-            <div class="diva">
-                <div class='diva-heading'>
-                    Collection Stats
-                </div>
-                <div class='diva-heading'>
-                    MPS Stats
-                </div>
-
-                <div class='diva-heading'>
-                    Cluster Health
-                </div>
-
-                <div class='diva-heading'>
-                    Transaction Logs
+                <div class="well">
+                    <ul class="nav nav-stacked" id="sidebar">
+                        <li><a href="#sec1">Collection Stats</a></li>
+                        <li><a href="#sec2">Core Stats</a></li>
+                        <li><a href="#sec3">Solr HealthCheck</a></li>
+                        <li><a href="#sec4">Zookeeper HealthCheck</a></li>
+                        <li><a href="#sec4">TransactionLog Stats</a></li>
+                    </ul>
                 </div>
 
+            </div>
+
+            <div class="col-md-9">
 
 
+                    <!-- <hr class="col-md-12"> -->
 
-            </div> <!--left ends -->
-
-
-            <!--center start -->
-            <div class="divb">
-
-                <div id="collection-stats-mps-filter">
+                <h4 id="sec1">
                     Selected MPS &nbsp;
                     <select>
                         <option>All</option>
-                        <option>aruba-aruba-aruba</option>
-                        <option>aruba-aruba-aruba</option>
+                        <option>aruba-aruba-aruba_pod</option>
+                        <option>All</option>
+                        <option>All</option>
+                        <option>All</option>
                     </select>
-                </div>
+                </h4>
+                <hr>
 
-                <div id="collection-stats-table">
-                    <table cellspacing="0">
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>State</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th>ssasa</th>
-                                <th>ssasa</th>
-                            </tr>
-                            <tr>
-                                <th>ssasa</th>
-                                <th>ssasa</th>
-                            </tr>
-                            <tr>
-                                <th>ssasa</th>
-                                <th>ssasa</th>
-                            </tr>
-                        </tbody>
-                    </table>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div id="chart1-div"></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div id="chart2-div"></div>
+                    </div>
                 </div>
 
 
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+                            <div class="panel-heading"><h3>20 Collections</h3></div>
+                                <!--  <div class="panel-body">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
+                      </div>  -->
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+                            <div class="panel-heading"><h3>18 Loaded</h3></div>
+                        </div>
+                    </div>
 
 
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+                            <div class="panel-heading"><h3>2 Unloaded</h3></div>
+                        </div>
+                    </div>
 
-            </div><!--center divb ends -->
 
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+                            <div class="panel-heading"><h3>0 Unhealthy</h3></div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+                            <div class="panel-heading"><h3>8 Nodes</h3></div>
+                                <!--  <div class="panel-body">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
+                      </div>  -->
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+                            <div class="panel-heading"><h3>100 Cores</h3></div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+                            <div class="panel-heading"><h3>20 M Doc</h3></div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+                            <div class="panel-heading"><h3>1.5 GB index </h3></div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <hr>
+
+                <h3 id="sec2">Collection Details</h3>
+
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <table id="table"
+                        data-sort-name="doc-count"
+                        data-sort-order="desc"
+                        data-search="true"
+                        data-show-toggle="true"
+                        data-show-columns="true"
+                        data-height="400">
+                            <thead>
+                                <tr>
+                                    <th data-formatter="runningFormatter">#</th>
+                                    <th data-field="collection" data-sortable="true">Collection</th>
+                                    <th data-field="state" data-sortable="true">State</th>
+                                    <th data-field="doc-count" data-sortable="true">DocCount</th>
+                                    <th data-field="size" data-sortable="true">Size</th>
+                                    <th data-field="details" >Details</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+
+                <hr />
+
+                <h3>Admin Commands</h3>
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="button" class="btn btn-danger">Delete All Collections</button>
+
+                        <button type="button" class="btn btn-danger">Delete All Collections of this MPS</button>
+
+                    </div>
+                </div>
+
+
+            </div>
         </div>
-
     </div>
 
-@*
-    <script>
-    $ ( document ).ready ( function ( ) {
-    $ ( '.tabs' ).tabslet ( ) ;
-    } )
-    </script>
-*@
+    <div class="modal" id="collection-details-modal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
 
+                    <h4 class="modal-title" id="myModalLabel">Collection Details</h4>
+                </div>
+                <div class="modal-body">
+                    <h3>Cores</h3>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br/>
+    <br/>
 
 }

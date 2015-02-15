@@ -94,27 +94,20 @@ body {
 	background-color: #394456;
 	font-family: copper-hewitt-light;
 	color: #FFF;
-
 }
 
 .divb {
-    margin-left: 210px; min-height: 800px;
+    margin-left: 210px;
+    min-height: 800px;
+    padding: 10px;
+    font-size: 12px;
 	background-color: #FFF;
 	font-family: "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
 	color: #000;
-	font-size: 12px;
-	
-	
+
 }
 
-/*.divc {
-	padding: 15px 10px 0px 10px; margin-left: 1095px;
-	min-height: 800px; 
-	background-color: #394456; color: #FFF;
-	font-family: copper-hewitt-light;
-}*/
-
-.diva-elem {  margin: 0px 0px 15px 0px;}
+#collection-stats-mps-filter { margin-bottom: 10px; font-size: 14px; font-weight: bold; }
 
 .diva-heading { color: #2ED25C;  font-family: copper-hewitt-medium; margin:0px 0px 20px 0px;   }
 .list1 { margin: 0px; list-style-type: none; padding: 0px 0px 0px 5px; }

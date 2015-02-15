@@ -8,4 +8,9 @@ function getSolrCollections() {
         }
     });
 
+
 }
+
+$(document).ready(function() {
+    $('#collection-stats-table').find('table').first().DataTable();
+})

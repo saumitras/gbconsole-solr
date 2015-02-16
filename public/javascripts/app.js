@@ -7,11 +7,31 @@ function getSolrCollections() {
             alert(data)
         }
     });
-
-
 }
 
 $(document).ready(function(){
+
+    populateAliasTable();
+
+    populateCollectionTable();
+
+    $('.details').click(function(){
+        showCollectionDetails();
+    });
+
+    initChart();
+});
+
+function runningFormatter(value, row, index) {
+    return index;
+}
+
+function showCollectionDetails() {
+    $('#collection-details-modal').modal("show")
+}
+
+function populateCollectionTable() {
+
     var data = [];
 
     for(var i=1;i<200;i++) {
@@ -30,21 +50,23 @@ $(document).ready(function(){
         data: data
     });
 
-    $('.details').click(function(){
-        showCollectionDetails();
+}
+
+function populateAliasTable() {
+    var data = [];
+
+    for(var i=1;i<200;i++) {
+        var obj = {
+            "alias": "collection " + i,
+            "count": i*2,
+            "collections": "col1, col2, col3col1, col2, col3col1, col2, col3col1, col2, col3col1, col2, col3col1, col2, col3col1, col2, col3col1, col2, col3col1, col2, col3col1, col2, col3col1, col2, col3col1, col2, col3col1, col2, col3col1, col2, col3col1, col2, col3col1, col2, col3"
+        };
+
+        data.push(obj);
+    }
+
+    $('#table-alias').bootstrapTable({
+        data: data
     });
 
-    initChart();
-
-
-
-});
-
-function runningFormatter(value, row, index) {
-    return index;
 }
-
-function showCollectionDetails() {
-    $('#collection-details-modal').modal("show")
-}
-

@@ -2,7 +2,7 @@
 
 @main("SolrPartition Admin Console") {
     <header class="navbar navbar-default navbar-static-top" role="banner">
-        <div class="container overwrite-margin ">
+        <div class="container overwrite-margin">
             <div class="navbar-header">
                 <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -13,29 +13,32 @@
                 <a href="/" class="navbar-brand">GB-Solr-Console</a>
             </div>
 
-                <!-- <nav class="collapse navbar-collapse" role="navigation">
-      <ul class="nav navbar-nav">
-        <li>
-          <a href="#">Get Started</a>
-        </li>
-        <li>
-          <a href="#">Edit</a>
-        </li>
-        <li>
-          <a href="#">Visualize</a>
-        </li>
-        <li>
-          <a href="#">Prototype</a>
-        </li>
-      </ul>
-    </nav> -->
+                <nav class="collapse navbar-collapse" role="navigation">
+                  <ul class="nav navbar-nav">
+                    <li class="active">
+                      <a href="#">Collection Stats</a>
+                    </li>
+                    <li>
+                      <a href="#">Solr HealthCheck</a>
+                    </li>
+                    <li>
+                      <a href="#">Zookeeper HealthCheck</a>
+                    </li>
+                    <li>
+                      <a href="#">Transaction Logs</a>
+                    </li>
+                    <li>
+                      <a href="#">Unified Logs</a>
+                    </li>
+                  </ul>
+                </nav>
         </div>
     </header>
 
     <!-- Begin Body -->
-    <div class="container overwrite-margin ">
+    <div class="container overwrite-margin">
         <div class="row">
-            <div class="col-md-3" id="leftCol">
+            @*<div class="col-md-3" id="leftCol">
 
                 <div class="well">
                     <ul class="nav nav-stacked" id="sidebar">
@@ -47,9 +50,9 @@
                     </ul>
                 </div>
 
-            </div>
+            </div>*@
 
-            <div class="col-md-9">
+            <div class="col-md-12">
 
 
                     <!-- <hr class="col-md-12"> -->
@@ -146,6 +149,7 @@
                 <h3 id="sec2">Collection Details</h3>
 
 
+
                 <div class="row">
                     <div class="col-md-12">
                         <table id="table"
@@ -171,15 +175,40 @@
 
                 <hr />
 
-                <h3>Admin Commands</h3>
+                <h3 id="sec2">Aliases</h3>
+
                 <div class="row">
                     <div class="col-md-12">
-                        <button type="button" class="btn btn-danger">Delete All Collections</button>
+                        <table id="table-alias"
+                        data-search="true"
+                        data-show-columns="true"
+                        data-height="400">
+                            <thead>
+                                <tr>
+                                    <th data-formatter="runningFormatter">#</th>
+                                    <th data-field="alias" data-sortable="true">Alias Name</th>
+                                    <th data-field="count" data-sortable="true">Collection Count</th>
+                                    <th data-field="collections" data-sortable="true">Collections</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
 
+                <hr />
+
+                <h3>Utilities</h3>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="button" class="btn btn-info">Commit All Collections</button>
+                        <button type="button" class="btn btn-info">Commit All Collections of this MPS</button>
+                        <button type="button" class="btn btn-danger">Delete All Collections</button>
                         <button type="button" class="btn btn-danger">Delete All Collections of this MPS</button>
 
                     </div>
                 </div>
+
 
 
             </div>
@@ -206,5 +235,6 @@
 
     <br/>
     <br/>
+
 
 }

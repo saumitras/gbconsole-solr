@@ -1,7 +1,15 @@
 package models
 
+import org.apache.http.HttpResponse
+import org.apache.http.client.methods.HttpGet
+import org.apache.http.impl.client.DefaultHttpClient
+import org.apache.solr.client.solrj.SolrQuery
+import org.apache.solr.client.solrj.impl.CloudSolrServer
+
 object SolrStats {
 
+  val EPOCH_SEPERATOR = "___"
+  val ZKHOSTS: String = "localhost:9983"
 
 
   def getAllSolrCollections = {
@@ -81,6 +89,47 @@ object SolrStats {
     }
 
     Map("active" -> filterCores(allCores("active")), "inactive" -> filterCores(allCores("inactive")))
+
+  }
+
+
+  def getCollectionDetails(collection:String) = {
+    //name, mps, state, docCount, indexSize, epochStart, epochEnd, replicasList
+
+    val regex = s"$EPOCH_SEPERATOR.*"
+    val mps = collection.replaceAll(regex,"")
+
+    val state = "active"
+
+    val client:CloudSolrServer = new CloudSolrServer(ZKHOSTS)
+    client.setDefaultCollection(collection)
+    client.connect()
+    val query:SolrQuery = new SolrQuery()
+    query.setParam("q","*:*")
+    query.setParam("rows","0")
+
+    val response = client.query(query)
+    val docCount = response.getResults.getNumFound.toString
+
+    val cores = getCollectionsByName(collection)(collection)
+
+
+    for((core, stats) <- cores) {
+      val baseUrl = stats("baseUrl")
+      val client = new DefaultHttpClient()
+      val request:HttpGet = new HttpGet(s"$baseUrl/$core/replication?action=details")
+      val response:HttpResponse = client.execute(request)
+    }
+
+
+    client.shutdown()
+
+    Map (
+      "name" -> collection,
+      "mps" -> mps,
+      "docCount" -> docCount,
+      "cores" -> cores.toString()
+    )
 
   }
 

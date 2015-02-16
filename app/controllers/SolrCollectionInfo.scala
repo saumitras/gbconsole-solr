@@ -16,4 +16,8 @@ object SolrCollectionInfo extends Controller {
   def getCollectionsByMps(mps: String) = Action {
     Ok(Json.toJson(models.SolrStats.getCollectionsByMps(mps)))
   }
+
+  def getCollectionDetails(collectionName: String) = Action {
+    Ok(Json.toJson(models.SolrStats.getCollectionDetails(collectionName)))
+  }
 }

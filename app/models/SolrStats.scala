@@ -5,8 +5,13 @@ import org.apache.http.client.methods.HttpGet
 import org.apache.http.impl.client.DefaultHttpClient
 import org.apache.solr.client.solrj.SolrQuery
 import org.apache.solr.client.solrj.impl.CloudSolrServer
+import play.api.Logger
+
+import scala.collection.JavaConverters._
+
 
 object SolrStats {
+
 
   val EPOCH_SEPERATOR = "___"
   val ZKHOSTS: String = "localhost:9983"
@@ -36,6 +41,21 @@ object SolrStats {
 
     }
     colMap
+  }
+
+  def getAliases() = {
+    val client:CloudSolrServer = new CloudSolrServer(ZKHOSTS)
+    client.connect()
+
+    val aliases = client.getZkStateReader.getAliases.getCollectionAliasMap
+
+    /*aliases match {
+      case Some(x) => x.asScala.toMap
+      case None => Map[String, String]()
+    }
+*/
+    if(aliases != null) aliases.asScala.toMap else Map[String,String]()
+
   }
 
 
@@ -119,6 +139,8 @@ object SolrStats {
       val client = new DefaultHttpClient()
       val request:HttpGet = new HttpGet(s"$baseUrl/$core/replication?action=details")
       val response:HttpResponse = client.execute(request)
+
+      Logger.debug(response.get)
     }
 
 
@@ -132,6 +154,7 @@ object SolrStats {
     )
 
   }
+
 
 
 }

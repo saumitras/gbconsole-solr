@@ -20,4 +20,8 @@ object SolrCollectionInfo extends Controller {
   def getCollectionDetails(collectionName: String) = Action {
     Ok(Json.toJson(models.SolrStats.getCollectionDetails(collectionName)))
   }
+
+  def getAliases() = Action {
+    Ok(Json.toJson(models.SolrStats.getAliases()))
+  }
 }

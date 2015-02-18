@@ -53,20 +53,34 @@ function populateCollectionTable() {
 }
 
 function populateAliasTable() {
-    var data = [];
 
-    for(var i=1;i<200;i++) {
-        var obj = {
-            "alias": "collection " + i,
-            "count": i*2,
-            "collections": "col1, col2, col3col1, col2, col3col1, col2, col3col1, col2, col3col1, col2, col3col1, col2, col3col1, col2, col3col1, col2, col3col1, col2, col3col1, col2, col3col1, col2, col3col1, col2, col3col1, col2, col3col1, col2, col3col1, col2, col3col1, col2, col3"
-        };
 
-        data.push(obj);
-    }
+    $.ajax({
+        'type': "GET",
+        'url': "/api/solr/alias",
+        'success':function(response) {
+            console.log(response);
+            var data = [];
 
-    $('#table-alias').bootstrapTable({
-        data: data
+            response = {}
+            $.each(response, function(aliasName, collectionList) {
+                console.log(aliasName);
+                var cols = collectionList.split(",");
+
+                data.push({
+                    "alias": aliasName,
+                    "count": cols.length,
+                    "collections": cols.join(", ")
+                });
+            });
+
+            $('#table-alias').bootstrapTable({
+                data: data
+            });
+        }
     });
 
+
+
 }
+

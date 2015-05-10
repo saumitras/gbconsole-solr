@@ -16,4 +16,12 @@ object SolrHealthCheck extends Controller {
     Ok(Json.toJson(stats))
   }
 
+  def getSensuHealthStatus() = Action {
+    val stats = SolrStats.getCoresHealth("")
+    val inactive = stats.getOrElse("inactive",Map())
+    if (inactive.keys.size == 0)
+      Ok("0") //healthy
+    else
+      Ok("2")
+  }
 }

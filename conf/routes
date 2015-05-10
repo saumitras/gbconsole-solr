@@ -9,6 +9,7 @@ GET        /api/solr/collections/:collectionName        controllers.SolrCollecti
 GET        /api/solr/collections/mps/:mpsName           controllers.SolrCollectionInfo.getCollectionsByMps(mpsName:String)
 
 GET        /api/solr/health                             controllers.SolrHealthCheck.getClusterHealth(filter:String = "all")
+GET        /api/sensu/solr/health                       controllers.SolrHealthCheck.getSensuHealthStatus()
 GET        /api/solr/health/:filter                     controllers.SolrHealthCheck.getClusterHealth(filter:String)
 GET        /api/solr/health/mps/:mpsName                controllers.SolrHealthCheck.getClusterHealthByMps(mpsName:String)
 

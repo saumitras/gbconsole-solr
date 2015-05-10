@@ -5,7 +5,7 @@ import org.apache.http.client.methods.HttpGet
 import org.apache.http.impl.client.DefaultHttpClient
 import org.apache.solr.client.solrj.SolrQuery
 import org.apache.solr.client.solrj.impl.CloudSolrServer
-import play.api.Logger
+import play.api.{Play, Logger}
 
 import scala.collection.JavaConverters._
 
@@ -14,7 +14,7 @@ object SolrStats {
 
 
   val EPOCH_SEPERATOR = "___"
-  val ZKHOSTS: String = "localhost:9983"
+  val ZKHOSTS = Play.current.configuration.getString("zk.hosts") match {case Some(x) => x case None => ""}
 
 
   def getAllSolrCollections = {
@@ -140,7 +140,7 @@ object SolrStats {
       val request:HttpGet = new HttpGet(s"$baseUrl/$core/replication?action=details")
       val response:HttpResponse = client.execute(request)
 
-      Logger.debug(response.get)
+
     }
 
 
